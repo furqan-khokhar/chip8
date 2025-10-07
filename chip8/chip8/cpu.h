@@ -3,7 +3,7 @@
 
 #include <stdint.h>					// Standard library for fixed width integer types
 
-class cpu {
+class Cpu {
 private:
 	uint8_t memory[4 * 1024];		// Memory (4 kilobytes)
 									// All of chip8's memory is RAM and considered writable
@@ -20,6 +20,9 @@ private:
 	uint16_t stack[16];				// Stack
 									// Calls subroutines and returns from them
 
+	uint8_t sp;						// Stack Pointer
+									// Points to next free slot in stack
+
 	uint8_t delay_timer;			// Delay Timer
 									// Decremented at 60Hz until it reaches 0
 
@@ -33,5 +36,14 @@ private:
 
 	uint16_t opcode;				// Opcode
 									// Instructions/data to be processed
+	
+	void init();
+
+public:
+	Cpu();
+
+	void tick();
+	bool load(uint8_t rom[]);
 };
+
 #endif
