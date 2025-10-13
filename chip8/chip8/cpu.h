@@ -5,7 +5,7 @@
 
 class Cpu {
 private:
-	uint8_t memory[4 * 1024];		// Memory (4 kilobytes)
+	uint8_t ram[4 * 1024];			// Random Access Memory (4 kilobytes)
 									// All of chip8's memory is RAM and considered writable
 
 	uint8_t gfx[64 * 32];			// Graphics Buffer
@@ -43,7 +43,7 @@ public:
 	Cpu();
 
 	void tick();
-	bool load(uint8_t rom[]);
+	bool load(uint8_t rom[], uint8_t rom_size);
 };
 
 #endif

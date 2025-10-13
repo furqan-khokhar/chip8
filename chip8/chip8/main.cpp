@@ -7,7 +7,7 @@ int main() {
 	
 	Cpu cpu = Cpu();	// Initialise chip8 cpu
 
-	uint8_t bytes_read;	// File size
+	uint8_t bytes_read = 0;	// File size
 
 	// Execute every operand in file
 	// Each operand is 1 nibble
