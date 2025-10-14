@@ -35,7 +35,7 @@ auto read_file_data(const char* file_path) noexcept -> std::vector<char> {
 int main(int argc, char* argv[]) {
 
 	if (argc < 2) {
-		std::cout << "[ * ] Load Chip8 ROM\n";
+		std::cout << "[ * ] Load Chip8 ROM with program.\n";
 		return 1;
 	}
 
