@@ -45,9 +45,9 @@
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\itsss\\Downloads\\Projects\\Developer\\Personal\\chip8\\chip8\\chip8\\main.cpp",
               "RelativeDocumentMoniker": "chip8\\main.cpp",
-              "ToolTip": "C:\\Users\\itsss\\Downloads\\Projects\\Developer\\Personal\\chip8\\chip8\\chip8\\main.cpp*",
-              "RelativeToolTip": "chip8\\main.cpp*",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAAACUAAAAbAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\itsss\\Downloads\\Projects\\Developer\\Personal\\chip8\\chip8\\chip8\\main.cpp",
+              "RelativeToolTip": "chip8\\main.cpp",
+              "ViewState": "AgIAABwAAAAAAAAAAAAAACUAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-10-14T09:18:05.372Z",
               "EditorCaption": ""
@@ -60,9 +60,10 @@
               "RelativeDocumentMoniker": "chip8\\cpu.h",
               "ToolTip": "C:\\Users\\itsss\\Downloads\\Projects\\Developer\\Personal\\chip8\\chip8\\chip8\\cpu.h",
               "RelativeToolTip": "chip8\\cpu.h",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAAC4AAAACAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAC4AAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-10-07T08:17:27.562Z"
+              "WhenOpened": "2025-10-07T08:17:27.562Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -72,9 +73,10 @@
               "RelativeDocumentMoniker": "chip8\\cpu.cpp",
               "ToolTip": "C:\\Users\\itsss\\Downloads\\Projects\\Developer\\Personal\\chip8\\chip8\\chip8\\cpu.cpp",
               "RelativeToolTip": "chip8\\cpu.cpp",
-              "ViewState": "AgIAACoAAAAAAAAAAAAAAAIAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAACUAAAAAAAAAAAAAAAkAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-10-07T08:17:13.026Z"
+              "WhenOpened": "2025-10-07T08:17:13.026Z",
+              "EditorCaption": ""
             }
           ]
         }

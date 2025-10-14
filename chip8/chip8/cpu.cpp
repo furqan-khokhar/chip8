@@ -7,7 +7,7 @@
 
 void Cpu::init()
 {
-	std::cout << "Constructor";
+	std::cout << "Constructor\n";
 
 	pc = 0x200;		// PC starts at index 512
 	i = 0;			// Reset index pointer

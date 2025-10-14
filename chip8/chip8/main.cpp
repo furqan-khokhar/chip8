@@ -13,21 +13,11 @@ auto read_file_data(const char* file_path) noexcept -> std::vector<char> {
 
 	auto size = std::filesystem::file_size(file_path);
 
-	std::cout << size << std::endl;
-
-	input_file.seekg(0, std::ios::end);
-
-	//std::cout << std::hex << input_file.rdbuf() << std::endl;
-
 	std::istreambuf_iterator<char> input_reader{ input_file }, end;
 
-	file_data.assign(input_reader, {});
-
-	std::string input_text{ input_reader, end };
+	file_data.assign(input_reader, end);
 
 	input_file.close();
-
-	//std::cout << input_text.size() << std::endl;
 
 	return file_data;
 }
@@ -39,15 +29,18 @@ int main(int argc, char* argv[]) {
 		return 1;
 	}
 
-	//char* path = argv[1];
-
-	//std::cout << path << std::endl;
-
-	read_file_data(argv[1]);
+	std::vector<char> file_data = read_file_data(argv[1]);
 	
-	Cpu cpu = Cpu();	// Initialise chip8 cpu
+	Cpu cpu = Cpu();	// Initialise chip8 cpu	
 
 	uint8_t bytes_read = 0;	// File size
+
+	// Read ROM (debugging, clean & delete later)
+
+	for (unsigned int i : file_data)
+		printf("%2.2x ", i & 0xFF);
+
+	//cpu.load();
 
 	// Execute every operand in file
 	// Each operand is 1 nibble
