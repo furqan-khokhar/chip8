@@ -34,6 +34,10 @@ private:
 									// Numbered 0 through F
 									// VF is used as a flag register
 
+	uint8_t hi;
+
+	uint8_t lo;
+
 	uint16_t opcode;				// Opcode
 									// Instructions/data to be processed
 	

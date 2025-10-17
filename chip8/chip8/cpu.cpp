@@ -2,6 +2,17 @@
 
 #include "cpu.h"
 
+// Decode Macros
+#define X hi & 0x0F				//	-X--
+#define Y (lo & 0xF0) >> 4		//	--Y-
+#define N lo & 0x0F				//	---N
+#define NN lo					//	--NN
+#define NNN ((hi & 0x0F) | lo)	//	-NNN
+
+#define VX V[X]
+#define VY V[Y]
+#define VF V[0xF]
+
 // Resets CPU's state
 // Will allow for different ROMs to be played without closing and re-opening the program.
 
@@ -44,10 +55,22 @@ Cpu::Cpu() { init(); }
 void Cpu::tick()
 {
 	// Print all opcodes from memory, 2 opcodes are used per tick
-	printf("%x : %2.2x\n", pc, ram[pc] & 0xFF);
+	hi = ram[pc];
+	printf("%u : %2.2x\n", pc, hi & 0xFF);
 	pc++;
-	printf("%x : %2.2x\n", pc, ram[pc] & 0xFF);
+	lo = ram[pc];
+	printf("%u : %2.2x\n", pc, lo & 0xFF);
 	pc++;
+	printf("x: %1.1x, y: %1.1x, n: %1.1x, nn: %2.2x, nnn: %3.3x\n", X, Y, N, NN, NNN);
+
+	// Decode & Execute
+
+	// _X__
+	// __Y_
+	// ___N
+	// __NN
+	// _NNN
+	
 }
 
 // Load ROM into emulator

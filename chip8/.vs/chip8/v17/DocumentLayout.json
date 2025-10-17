@@ -7,15 +7,12 @@
       "RelativeMoniker": "D:0:0:{D5B50DE2-A5BF-4AB9-A314-02AE36F97FED}|chip8\\chip8.vcxproj|solutionrelative:chip8\\cpu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D5B50DE2-A5BF-4AB9-A314-02AE36F97FED}|chip8\\chip8.vcxproj|C:\\Users\\itsss\\Downloads\\Projects\\Developer\\Personal\\chip8\\chip8\\chip8\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{D5B50DE2-A5BF-4AB9-A314-02AE36F97FED}|chip8\\chip8.vcxproj|solutionrelative:chip8\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D5B50DE2-A5BF-4AB9-A314-02AE36F97FED}|chip8\\chip8.vcxproj|C:\\Users\\itsss\\Downloads\\Projects\\Developer\\Personal\\chip8\\chip8\\chip8\\cpu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{D5B50DE2-A5BF-4AB9-A314-02AE36F97FED}|chip8\\chip8.vcxproj|solutionrelative:chip8\\cpu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\include\\filesystem||{3B902123-F8A7-4915-9F01-361F908088D0}|"
+      "AbsoluteMoniker": "D:0:0:{D5B50DE2-A5BF-4AB9-A314-02AE36F97FED}|chip8\\chip8.vcxproj|C:\\Users\\itsss\\Downloads\\Projects\\Developer\\Personal\\chip8\\chip8\\chip8\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D5B50DE2-A5BF-4AB9-A314-02AE36F97FED}|chip8\\chip8.vcxproj|solutionrelative:chip8\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -25,23 +22,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "filesystem",
-              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\include\\filesystem",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\include\\filesystem",
-              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\include\\filesystem",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\include\\filesystem",
-              "ViewState": "AgIAAAQPAAAAAAAAAAAUwLkNAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-10-14T09:18:38.826Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\itsss\\Downloads\\Projects\\Developer\\Personal\\chip8\\chip8\\chip8\\main.cpp",
               "RelativeDocumentMoniker": "chip8\\main.cpp",
@@ -49,18 +34,17 @@
               "RelativeToolTip": "chip8\\main.cpp",
               "ViewState": "AgIAACIAAAAAAAAAAAAAADQAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-10-14T09:18:05.372Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-14T09:18:05.372Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "cpu.h",
               "DocumentMoniker": "C:\\Users\\itsss\\Downloads\\Projects\\Developer\\Personal\\chip8\\chip8\\chip8\\cpu.h",
               "RelativeDocumentMoniker": "chip8\\cpu.h",
               "ToolTip": "C:\\Users\\itsss\\Downloads\\Projects\\Developer\\Personal\\chip8\\chip8\\chip8\\cpu.h",
               "RelativeToolTip": "chip8\\cpu.h",
-              "ViewState": "AgIAACEAAAAAAAAAAAAUwC0AAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACYAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-10-07T08:17:27.562Z",
               "EditorCaption": ""
@@ -73,7 +57,7 @@
               "RelativeDocumentMoniker": "chip8\\cpu.cpp",
               "ToolTip": "C:\\Users\\itsss\\Downloads\\Projects\\Developer\\Personal\\chip8\\chip8\\chip8\\cpu.cpp",
               "RelativeToolTip": "chip8\\cpu.cpp",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAAC0AAAA+AAAAAAAAAA==",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAADoAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-10-07T08:17:13.026Z",
               "EditorCaption": ""
