@@ -33,14 +33,19 @@ int main(int argc, char* argv[]) {
 	
 	Cpu cpu = Cpu();	// Initialise chip8 cpu	
 
-	uint8_t bytes_read = 0;	// File size
+	int bytes_read = file_data.size();	// File size
+
+	printf("%.x\n",  bytes_read);
 
 	// Read ROM (debugging, clean & delete later)
-
+	
+	/*
 	for (unsigned int i : file_data)
 		printf("%2.2x ", i & 0xFF);
+		std::cout << std::endl;
+	*/
 
-	//cpu.load();
+	cpu.load(file_data.data(), bytes_read);
 
 	// Execute every operand in file
 	// Each operand is 1 nibble

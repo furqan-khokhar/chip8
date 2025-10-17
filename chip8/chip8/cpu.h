@@ -43,7 +43,7 @@ public:
 	Cpu();
 
 	void tick();
-	bool load(uint8_t rom[], uint8_t rom_size);
+	bool load(char* rom_pointer, int rom_size);
 };
 
 #endif

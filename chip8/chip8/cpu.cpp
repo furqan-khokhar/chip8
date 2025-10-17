@@ -43,14 +43,26 @@ Cpu::Cpu() { init(); }
 
 void Cpu::tick()
 {
+	// Print all opcodes from memory, 2 opcodes are used per tick
+	printf("%x : %2.2x\n", pc, ram[pc] & 0xFF);
+	pc++;
+	printf("%x : %2.2x\n", pc, ram[pc] & 0xFF);
+	pc++;
 }
 
 // Load ROM into emulator
 
-bool Cpu::load(uint8_t rom[], uint8_t rom_size)
+bool Cpu::load(char* rom_pointer, int rom_size)
 {
 	// Reset CPU state
 	init();
+
+	// Add ROM to memory
+	for (int i = 0; i < rom_size; ++i) {
+		printf("%i : %2.2x ", i, *(rom_pointer + i) & 0xFF);
+		ram[pc+i] = *(rom_pointer + i);
+		std::cout << std::endl;
+	}
 
 	return false;
 }
