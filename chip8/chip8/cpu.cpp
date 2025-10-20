@@ -3,15 +3,15 @@
 #include "cpu.h"
 
 // Decode Macros
-#define X hi & 0x0F				//	-X--
-#define Y (lo & 0xF0) >> 4		//	--Y-
-#define N lo & 0x0F				//	---N
-#define NN lo					//	--NN
-#define NNN ((hi & 0x0F) | lo)	//	-NNN
+#define X hi & 0x0F						//	-X--
+#define Y (lo & 0xF0) >> 4				//	--Y-
+#define N lo & 0x0F						//	---N
+#define NN lo							//	--NN
+#define NNN (hi << 8 | lo) & 0x0FFF		//	-NNN
 
-#define VX V[X]
-#define VY V[Y]
-#define VF V[0xF]
+#define VX v[X]
+#define VY v[Y]
+#define VF v[0xF]
 
 // Resets CPU's state
 // Will allow for different ROMs to be played without closing and re-opening the program.
@@ -56,14 +56,107 @@ void Cpu::tick()
 {
 	// Print all opcodes from memory, 2 opcodes are used per tick
 	hi = ram[pc];
-	printf("%u : %2.2x\n", pc, hi & 0xFF);
+	printf("%x : %2.2x\n", pc, hi & 0xFF);
 	pc++;
 	lo = ram[pc];
-	printf("%u : %2.2x\n", pc, lo & 0xFF);
+	printf("%x : %2.2x\n", pc, lo & 0xFF);
 	pc++;
 	printf("x: %1.1x, y: %1.1x, n: %1.1x, nn: %2.2x, nnn: %3.3x\n", X, Y, N, NN, NNN);
 
-	// Decode & Execute
+	// Decode
+
+	switch (hi >> 4) {
+		case 0x0:
+			switch (hi << 8 | lo) {
+				case 0x00E0:
+					// Clear screen
+					break;
+				case 0x00EE:
+					pc = stack[sp];		// Set PC to stack value
+					stack[sp--] = NULL;	// Pop last address from stack
+					break;
+			}
+			break;
+
+		case 0x1:
+			// 1NNN
+			pc = NNN;	// PC jumps to NNN
+			break;
+
+		case 0x2:
+			// 2NNN
+			
+			// Check for stack overflow
+			if (sp >= ( sizeof(stack)/sizeof(stack[0]))) {
+				throw std::runtime_error("Stack overflow");
+			}
+
+			stack[sp++] = pc;	// Push current PC to stack
+			pc = NNN;			// PC jumps to NNN
+			break;
+
+		case 0x3:
+			break;
+
+		case 0x4:
+			break;
+
+		case 0x5:
+			break;
+
+		case 0x6:
+			// 6XNN
+			// Set VX to NN
+			VX = NN;
+			break;
+
+		case 0x7:
+			// 7XNN
+			// Add NN to VX
+			VX += NN;
+			break;
+
+		case 0x8:
+			break;
+
+		case 0x9:
+			break;
+
+		case 0xA:
+			// ANNN
+			// Set i to NNN
+			i = NNN;
+			break;
+
+		case 0xB:
+			break;
+
+		case 0xC:
+			break;
+
+		case 0xD:
+			uint8_t x = VX % 64;
+			uint8_t y = VY % 32;
+			VF = 0;
+
+			for (i = 0; i >= 32; i++) {
+
+			}
+
+
+			// DYXN
+			// Draw
+			break;
+
+		case 0xE:
+			break;
+
+		case 0xF:
+			break;
+
+		default:
+			break;
+	}
 
 	// _X__
 	// __Y_

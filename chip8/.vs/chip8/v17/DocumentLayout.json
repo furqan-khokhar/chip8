@@ -32,9 +32,11 @@
               "RelativeDocumentMoniker": "chip8\\main.cpp",
               "ToolTip": "C:\\Users\\itsss\\Downloads\\Projects\\Developer\\Personal\\chip8\\chip8\\chip8\\main.cpp",
               "RelativeToolTip": "chip8\\main.cpp",
-              "ViewState": "AgIAACIAAAAAAAAAAAAAADQAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAADQAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-10-14T09:18:05.372Z"
+              "WhenOpened": "2025-10-14T09:18:05.372Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -44,9 +46,10 @@
               "RelativeDocumentMoniker": "chip8\\cpu.h",
               "ToolTip": "C:\\Users\\itsss\\Downloads\\Projects\\Developer\\Personal\\chip8\\chip8\\chip8\\cpu.h",
               "RelativeToolTip": "chip8\\cpu.h",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAACYAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-10-07T08:17:27.562Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
@@ -57,7 +60,7 @@
               "RelativeDocumentMoniker": "chip8\\cpu.cpp",
               "ToolTip": "C:\\Users\\itsss\\Downloads\\Projects\\Developer\\Personal\\chip8\\chip8\\chip8\\cpu.cpp",
               "RelativeToolTip": "chip8\\cpu.cpp",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAAADoAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAAAI4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-10-07T08:17:13.026Z",
               "EditorCaption": ""
