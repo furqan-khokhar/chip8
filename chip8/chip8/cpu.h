@@ -8,7 +8,10 @@ private:
 	uint8_t ram[4 * 1024];			// Random Access Memory (4 kilobytes)
 									// All of chip8's memory is RAM and considered writable
 
-	uint8_t gfx[64 * 32];			// Graphics Buffer
+	uint8_t columns = 64;
+	uint8_t rows = 32;
+
+	uint8_t gfx[32][64];			// Graphics Buffer
 									// 64 x 32 pixel resolution
 									// Each byte represents 1 pixel, allows for colours in future implementation
 
@@ -46,8 +49,9 @@ private:
 public:
 	Cpu();
 
+	void print_display( std::ostream& out );
 	void tick();
-	bool load(char* rom_pointer, int rom_size);
+	bool load( char* rom_pointer, int rom_size );
 };
 
 #endif

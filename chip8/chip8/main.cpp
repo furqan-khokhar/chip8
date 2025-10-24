@@ -1,4 +1,6 @@
+#include <string>
 #include <iostream>
+#include <Windows.h>
 #include <stdint.h>
 #include <vector>
 #include <fstream>
@@ -24,6 +26,8 @@ auto read_file_data(const char* file_path) noexcept -> std::vector<char> {
 
 int main(int argc, char* argv[]) {
 
+	SetConsoleOutputCP(CP_UTF8);
+
 	if (argc < 2) {
 		std::cout << "[ * ] Load Chip8 ROM with program.\n";
 		return 1;
@@ -35,7 +39,7 @@ int main(int argc, char* argv[]) {
 
 	int bytes_read = file_data.size();	// File size
 
-	printf("%.x\n",  bytes_read);
+	printf("Bytes read: %.x\n",  bytes_read);
 
 	// Read ROM (debugging, clean & delete later)
 	
@@ -52,6 +56,7 @@ int main(int argc, char* argv[]) {
 
 	for (int i = 0; i < bytes_read/2; i++) {
 		cpu.tick();
+		cpu.print_display(std::cout);
 	}
 
 }

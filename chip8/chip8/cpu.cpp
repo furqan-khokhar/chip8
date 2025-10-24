@@ -1,6 +1,7 @@
-#include <iostream>
+﻿#include <iostream>
 
 #include "cpu.h"
+#include <bitset>
 
 // Decode Macros
 #define X hi & 0x0F						//	-X--
@@ -31,8 +32,10 @@ void Cpu::init()
 	}
 
 	// Clear graphics buffer
-	for (int i = 0; i < 64 * 32; i++) {
-		gfx[i] = 0;
+	for (int i = 0; i < rows; i++) {
+		for (int j = 0; j < columns; j++) {
+			gfx[i][j] = 0;
+		}
 	}
 
 	// Clear stack and variable registers
@@ -56,12 +59,13 @@ void Cpu::tick()
 {
 	// Print all opcodes from memory, 2 opcodes are used per tick
 	hi = ram[pc];
-	printf("%x : %2.2x\n", pc, hi & 0xFF);
+	//printf("%x : %2.2x\n", pc, hi & 0xFF);
 	pc++;
 	lo = ram[pc];
-	printf("%x : %2.2x\n", pc, lo & 0xFF);
+	//printf("%x : %2.2x\n", pc, lo & 0xFF);
 	pc++;
-	printf("x: %1.1x, y: %1.1x, n: %1.1x, nn: %2.2x, nnn: %3.3x\n", X, Y, N, NN, NNN);
+	//printf("x: %1.1x, y: %1.1x, n: %1.1x, nn: %2.2x, nnn: %3.3x\n", X, Y, N, NN, NNN);
+	printf("%2.2x%2.2x\n", hi & 0xFF, lo & 0xFF);
 
 	// Decode
 
@@ -70,8 +74,15 @@ void Cpu::tick()
 			switch (hi << 8 | lo) {
 				case 0x00E0:
 					// Clear screen
+					for (int row = 0; row < rows; row++) {
+						for (int col = 0; col < columns; col++) {
+							gfx[row][col] = 0;
+						}
+					}
 					break;
+
 				case 0x00EE:
+					// Return from subroutine
 					pc = stack[sp];		// Set PC to stack value
 					stack[sp--] = NULL;	// Pop last address from stack
 					break;
@@ -80,29 +91,31 @@ void Cpu::tick()
 
 		case 0x1:
 			// 1NNN
+			// Jump
 			pc = NNN;	// PC jumps to NNN
 			break;
 
 		case 0x2:
 			// 2NNN
+			// Jump to subroutine
 			
 			// Check for stack overflow
 			if (sp >= ( sizeof(stack)/sizeof(stack[0]))) {
-				throw std::runtime_error("Stack overflow");
+				throw std::runtime_error("Stack overflow\n");
 			}
 
 			stack[sp++] = pc;	// Push current PC to stack
 			pc = NNN;			// PC jumps to NNN
 			break;
 
-		case 0x3:
-			break;
+		//case 0x3:
+		//	break;
 
-		case 0x4:
-			break;
+		//case 0x4:
+		//	break;
 
-		case 0x5:
-			break;
+		//case 0x5:
+		//	break;
 
 		case 0x6:
 			// 6XNN
@@ -116,11 +129,11 @@ void Cpu::tick()
 			VX += NN;
 			break;
 
-		case 0x8:
-			break;
+		//case 0x8:
+		//	break;
 
-		case 0x9:
-			break;
+		//case 0x9:
+		//	break;
 
 		case 0xA:
 			// ANNN
@@ -128,34 +141,43 @@ void Cpu::tick()
 			i = NNN;
 			break;
 
-		case 0xB:
-			break;
+		//case 0xB:
+		//	break;
 
-		case 0xC:
-			break;
+		//case 0xC:
+		//	break;
 
 		case 0xD:
-			uint8_t x = VX % 64;
-			uint8_t y = VY % 32;
+			uint8_t x = VX % columns;
+			uint8_t y = VY % rows;
+			uint8_t sprite_height = N;
 			VF = 0;
 
-			for (i = 0; i >= 32; i++) {
+			for (uint8_t row = 0; row < sprite_height; row++) {
+				uint8_t sprite_row = ram[i + row];
+				
+				for (uint8_t col = 0; col < 8; col++) {
+					uint8_t sprite_pixel = sprite_row & (0x80 >> col);
+					uint8_t *display_pixel = &gfx[y + row][x + col];
 
+					if (sprite_pixel && display_pixel) {
+						VF = 1;
+					}
+
+					*display_pixel ^= sprite_pixel;
+				}
 			}
 
-
-			// DYXN
-			// Draw
 			break;
 
-		case 0xE:
-			break;
+		//case 0xE:
+		//	break;
 
-		case 0xF:
-			break;
+		//case 0xF:
+		//	break;
 
-		default:
-			break;
+		//default:
+		//	break;
 	}
 
 	// _X__
@@ -181,4 +203,18 @@ bool Cpu::load(char* rom_pointer, int rom_size)
 	}
 
 	return false;
+}
+
+void Cpu::print_display( std::ostream& out ) {
+	for (int i = 0; i < rows; i++) {
+		for (int j = 0; j < columns; j++) {
+			if (gfx[i][j]) {
+				out << "#";
+			}
+			else {
+				out << " ";
+			}
+		}
+		out << "\n";
+	}
 }
